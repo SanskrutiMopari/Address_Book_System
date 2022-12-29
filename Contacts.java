@@ -1,7 +1,7 @@
 package AddressBookSystem;
 
 public class Contacts {
-    private String firstName, lastName, email;
+    private String firstName,lastName, email;
     private long phoneNumber;
     private String city, state;
     private long zip;
