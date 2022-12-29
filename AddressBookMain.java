@@ -19,7 +19,7 @@ public class AddressBookMain {
             System.out.println("\nChoose the operation on the Directory you want to perform");
             System.out.println("=============================================================");
             System.out.println(
-                    "1.Add an Address Book\n2.Edit Existing Address Book\n3.Display Address book Directory\n4.Search Person By Regionn\n5.View People By Region\n6.Exit Address book System");
+                    "1.Add an Address Book\n2.Edit Existing Address Book\n3.Display Address book Directory\n4.Search Person By Regionn\n5.View People By Region\n6.Count People By Region\n7.Exit Address book System");
             int choice = sc.nextInt();
             switch (choice) {
                 case 1:
@@ -47,6 +47,14 @@ public class AddressBookMain {
                         displayPeopleByRegion(AddressBook.city);
                     else
                         displayPeopleByRegion(AddressBook.state);
+                    break;
+                case 6:
+                    System.out.println("Enter \n1.Display By City\n2.Display By State");
+                    int countChoice = sc.nextInt();
+                    if(countChoice==1)
+                        countPeopleByRegion(AddressBook.city);
+                    else
+                        countPeopleByRegion(AddressBook.state);
                     break;
 
                 default:
@@ -151,7 +159,7 @@ public class AddressBookMain {
     /*
      * in this method displaying addressBook name
      */
-    static void displayDirectoryContents() {
+    public static void displayDirectoryContents() {
 
         System.out.println("----- Contents of the Address Book Directory-----");
         for (String eachBookName : addressBookDirectory.keySet()) {
@@ -160,5 +168,20 @@ public class AddressBookMain {
         }
         System.out.println("-----------------------------------------");
 
+    }
+    /*
+     * counting persons by City or State
+     */
+    public static void countPeopleByRegion(HashMap<String, ArrayList<Contacts>> listToDisplay) {
+
+        System.out.println("Enter the name of the region :");
+        String regionName = sc.next();
+
+        long countPeople = listToDisplay.values().stream()
+                .map(region -> region.stream().filter(person -> person.getState().equals(regionName)
+                        || person.getCity().equals(regionName)))
+                .count();
+
+        System.out.println("Number of People residing in " + regionName + " are: " + countPeople + "\n");
     }
 }
