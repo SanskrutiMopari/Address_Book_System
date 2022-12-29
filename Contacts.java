@@ -1,17 +1,11 @@
 package AddressBookSystem;
 
 public class Contacts {
-    //Variable Declaration for Contacts Class
-    private String firstName;
-    private String lastname;
-    private String address;
-    private String city;
-    private String state;
-    private String zip;
-    private String phoneNo;
-    private String emailID;
+    private String firstName, lastName, email;
+    private long phoneNumber;
+    private String city, state;
+    private long zip;
 
-    //Adding Getter and Setter Methods for the Variables
     public String getFirstName() {
         return firstName;
     }
@@ -20,20 +14,28 @@ public class Contacts {
         this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getCity() {
@@ -52,27 +54,24 @@ public class Contacts {
         this.state = state;
     }
 
-    public String getZip() {
+    public long getZip() {
         return zip;
     }
 
-    public void setZip(String zip) {
+    public void setZip(long zip) {
         this.zip = zip;
     }
 
-    public String getPhoneNo() {
-        return phoneNo;
-    }
-
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
-    }
-
-    public String getEmailID() {
-        return emailID;
-    }
-
-    public void setEmailID(String emailID) {
-        this.emailID = emailID;
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip=" + zip +
+                '}';
     }
 }
