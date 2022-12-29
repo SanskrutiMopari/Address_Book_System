@@ -36,7 +36,7 @@ public class AddressBookMain {
                     System.out.println("Please Select between 1 to 5 only.");
                     break;
             }
-        } while (choice != 5);
+        }while( choice != 5 );
 
     }
 }
